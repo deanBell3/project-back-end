@@ -1,10 +1,9 @@
 const knex= require('knex')({
     client:'pg',
     connection:{
-        host:'localhost',
-        database:'elevate',
-        user:'ubuntu',
-        password:'dean'
+        connectionString: process.env.DATABASE_URL,
+        ssl:true
+        
     }
 })
 
