@@ -20,9 +20,9 @@ password_digest varchar(255) not null,
 created_the timestamp default now()
 )
 create table article(
- article_id bigserial primary key,
- headline varchar(255) not null unique,
+  id bigserial primary key,
+ head varchar(255) not null unique,
  main text not null,
- picture text not null,
+ reference text not null,
  created_the timestamp default now()
  );

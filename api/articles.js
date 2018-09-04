@@ -15,8 +15,8 @@ router.get('/article',(req,res)=>{
     db.select('*').from('article').then(data=>res.send(data)).catch(err=>res.send(err))
    })
  router.post('/article',(req,res)=>{
-     const {headline, main,reference}= req.body;
-     db('article').insert({headline, main, reference})
+     const {head, main,reference}= req.body
+     db('article').insert({head, main, reference})
      .then(()=>res.send('posted successfully'))
      .catch(err=>res.send(err))
 })
