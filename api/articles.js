@@ -12,7 +12,7 @@ router.post('/articles', (req,res)=>{
 })
 // TEST ROUTES FOR INCORPORATION OF NEW STYLES
 router.get('/article',(req,res)=>{
-    db.select('*').from('article').then(data=>res.send(data)).catch(err=>res.send(err))
+    db.select('*').from('article').orderBy('created_the','desc').then(data=>res.send(data)).catch(err=>res.send(err))
    })
  router.post('/article',(req,res)=>{
      const {head, main,reference}= req.body
