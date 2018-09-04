@@ -10,6 +10,19 @@ router.post('/articles', (req,res)=>{
         res.send('Article posted successfully')
     }).catch(err=>res.send(err))
 })
+// TEST ROUTES FOR INCORPORATION OF NEW STYLES
+router.get('/articles-tests',(req,res)=>{
+    db.select('*').from('articlesT').then(data=>res.send(data)).catch(err=>res.send(err))
+   })
+ router.post('/articles-tests',(req,res)=>{
+     const {headline, main_picture,picture_reference}= req.body;
+     db('articlesT').insert({headline, main_picture, picture_reference})
+     .then(()=>res.send('posted successfully'))
+     .catch(err=>res.send(err))
+})
+
+// TEST ROUTES END 
+
 router.get('/articles/:id',(req,res)=>{
    const article_id= req.params.id;
    db.select('*').from('articles').where({article_id}).then(data=>res.send(data)).catch(err=>res.send(err))
