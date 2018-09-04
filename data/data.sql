@@ -19,3 +19,10 @@ email varchar(255) not null unique,
 password_digest varchar(255) not null,
 created_the timestamp default now()
 )
+create table article(
+ article_id bigserial primary key,
+ headline varchar(255) not null unique,
+ main text not null,
+ picture text not null,
+ created_the timestamp default now()
+ );

@@ -11,12 +11,12 @@ router.post('/articles', (req,res)=>{
     }).catch(err=>res.send(err))
 })
 // TEST ROUTES FOR INCORPORATION OF NEW STYLES
-router.get('/articles-tests',(req,res)=>{
-    db.select('*').from('articlesT').then(data=>res.send(data)).catch(err=>res.send(err))
+router.get('/article',(req,res)=>{
+    db.select('*').from('articles').then(data=>res.send(data)).catch(err=>res.send(err))
    })
- router.post('/articles-tests',(req,res)=>{
-     const {headline, main_picture,picture_reference}= req.body;
-     db('articlesT').insert({headline, main_picture, picture_reference})
+ router.post('/articles',(req,res)=>{
+     const {headline, main,reference}= req.body;
+     db('article').insert({headline, main, reference})
      .then(()=>res.send('posted successfully'))
      .catch(err=>res.send(err))
 })
