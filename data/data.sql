@@ -19,6 +19,13 @@ email varchar(255) not null unique,
 password_digest varchar(255) not null,
 created_the timestamp default now()
 )
+create table messages(
+id bigserial primary key,
+name varchar(255) not null,
+content text not null ,
+sent_the timestamp default now()
+);
+
 create table article(
   id bigserial primary key,
  head varchar(255) not null unique,

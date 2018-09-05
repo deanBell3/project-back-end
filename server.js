@@ -6,7 +6,6 @@ const cors= require('cors');
 const bodyParser= require('body-parser');
 // Routes requirements
 const articlesRoutes= require('./api/articles.js')
-const authRoutes= require('./api/auth.js')
 const profileRoutes= require('./api/profile.js')
 //Express Requirement
 const app= require('express')();
@@ -22,7 +21,7 @@ app.get('/', (req,res)=>{
 // articles routes
 app.use(articlesRoutes)
 //auth routes
-app.use(authRoutes)
+
 // express server
 app.use(profileRoutes)
 app.listen(process.env.PORT, process.env.IP,()=>{
