@@ -8,8 +8,8 @@ router.get('/messages',(req,res)=>{
 router.post('/messages',(req,res)=>{
     const{name,email,content}=req.body
     db('messages').insert({name,email,content}).then(()=>{
-        res.send('message sent thank you')
-    }).catch(err=>res.send(err))
+        res.send({message:'Message sent thank you'})
+    }).catch(()=>res.send({error:'Something went wrong try again'}))
 })
 
 router.get('/message/:id',(req,res)=>{
