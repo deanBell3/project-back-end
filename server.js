@@ -6,7 +6,7 @@ const cors= require('cors');
 const bodyParser= require('body-parser');
 // Routes requirements
 const articlesRoutes= require('./api/articles.js')
-const profileRoutes= require('./api/profile.js')
+const messageRoutes= require('./api/messages.js')
 //Express Requirement
 const app= require('express')();
 // Express uses 
@@ -20,10 +20,10 @@ app.get('/', (req,res)=>{
 })
 // articles routes
 app.use(articlesRoutes)
-//auth routes
-
+//message routes
+   app.use(messageRoutes)
 // express server
-app.use(profileRoutes)
+
 app.listen(process.env.PORT, process.env.IP,()=>{
     console.log('Elevate is up and running...')
 })
