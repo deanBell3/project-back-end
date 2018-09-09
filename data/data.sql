@@ -5,12 +5,12 @@ create table articles(
  picture_reference text not null,
  created_the timestamp default now()
  );
- create table paragraph(
+ create table paragraphs(
  p_id bigserial primary key,
  content text not null,
-article int references articles(article_id) on delete cascade,
+article int references article(id) on delete cascade,
  added_the timestamp default now()
- )
+ );
 
 create table elevate_users(
 id bigserial primary key,
@@ -22,6 +22,7 @@ created_the timestamp default now()
 create table messages(
 id bigserial primary key,
 name varchar(255) not null,
+email varchar(255) not null,
 content text not null ,
 sent_the timestamp default now()
 );

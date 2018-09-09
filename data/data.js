@@ -3,6 +3,10 @@ const knex= require('knex')({
     connection:{
         connectionString: process.env.DATABASE_URL,
         ssl:true
+       /* host:'localhost',
+        database:'elevate',
+        user:'ubuntu',
+        password:'dean'*/
         
     }
 })

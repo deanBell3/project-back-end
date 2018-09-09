@@ -2,7 +2,7 @@ const db= require('../data/data.js')
 const router= require('express').Router()
 
 router.get('/articles', (req,res)=>{
-    db.select('*').from('articles').then(data=>res.send(data)).catch(err=>res.send(err))
+    db.select('*').from('articles').orderBy('created_the', 'desc').then(data=>res.send(data)).catch(err=>res.send(err))
 })
 router.post('/articles', (req,res)=>{
     const {headline, main_picture, picture_reference}= req.body
@@ -19,6 +19,20 @@ router.get('/article',(req,res)=>{
      db('article').insert({head, main, reference})
      .then(()=>res.send('posted successfully'))
      .catch(err=>res.send(err))
+})
+router.get('/article/:id',(req,res)=>{
+    const id= req.body.id;
+    db.select('*').from('article').where({id}).thsn(data=>res.send(data)).catch(err=>res.send(err))
+})
+router.get('/article/:id/paragraph',(req,res)=>{
+    const article= req.params.id;
+    db.select('*').from('paragraphs').where({article}).then(data=>res.send(data)).catch(err=>res.send(err))
+})
+
+router.post('/article/:id/paragraph',(req,res)=>{
+     const{content}=req.body;
+    const{id}= req.params;
+    db('paragraphs').insert({content,article:id}).then(()=>res.send('paragraph added successfully')).catch(err=>res.send(err))
 })
 
 // TEST ROUTES END 
