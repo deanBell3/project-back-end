@@ -21,7 +21,7 @@ router.get('/article',(req,res)=>{
      .catch(err=>res.send(err))
 })
 router.get('/article/:id',(req,res)=>{
-    const id= req.body.id;
+    const id= req.params.id;
     db.select('*').from('article').where({id}).then(data=>res.send(data)).catch(err=>res.send(err))
 })
 router.get('/article/:id/paragraph',(req,res)=>{
