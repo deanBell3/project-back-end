@@ -22,7 +22,7 @@ router.get('/article',(req,res)=>{
 })
 router.get('/article/:id',(req,res)=>{
     const id= req.body.id;
-    db.select('*').from('article').where({id}).thsn(data=>res.send(data)).catch(err=>res.send(err))
+    db.select('*').from('article').where({id}).then(data=>res.send(data)).catch(err=>res.send(err))
 })
 router.get('/article/:id/paragraph',(req,res)=>{
     const article= req.params.id;
