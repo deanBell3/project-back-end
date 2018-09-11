@@ -1,14 +1,14 @@
 create table articles(
- article_id bigserial primary key,
- headline varchar(255) not null unique,
- main_picture text not null,
- picture_reference text not null,
+ id bigserial primary key,
+ head text not null unique,
+ main text not null,
+ reference text not null,
  created_the timestamp default now()
  );
- create table paragraphs(
- p_id bigserial primary key,
+ create table paragraph(
+ id bigserial primary key,
  content text not null,
-article int references article(id) on delete cascade,
+ article_id int references articles(id) on delete cascade,
  added_the timestamp default now()
  );
 
@@ -29,7 +29,7 @@ sent_the timestamp default now()
 
 create table article(
   id bigserial primary key,
- head varchar(255) not null unique,
+ head text not null unique,
  main text not null,
  reference text not null,
  created_the timestamp default now()
